@@ -1,13 +1,23 @@
+<style>
+    div {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        font-size: 75px;
+        vertical-align: middle;
+        text-align: center;
+        padding-top: 15px;
+    }
+    .paaris{
+        background: red;
+    }
+    .paaritu{
+        background: green;
+    }
+</style>
 <?php
-$eesNimi = 'Joel';
-$pereNimi = 'Purasson';
-$vanus = 18;
-$kaal = 85;
-$sugu = 'mees';
-
 $arv = rand(0,100);
 $jaak =  $arv % 2;
-echo $arv.' = ';
 if($jaak == 0) {
 echo '<div class="paaris">'.$arv.'</div>';
 }
