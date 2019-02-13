@@ -1,3 +1,10 @@
+<!doctype html>
+<html>
+<head>
+ <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+<div class="main">
 <?php
 /**
  * Created by PhpStorm.
@@ -5,12 +12,13 @@
  * Date: 13.02.2019
  * Time: 12:14
  */
-echo "Hello world!<br>";
-echo "Hello world!<br>";
-echo "Hello world!<br>";
+echo '<div id="punane"></div>';
+echo '<div id="kollane"></div>';
+echo '<div id="roheline"></div>';
+?>
+</div>
+</body>
+</html>
 
-echo '<hr>';
 
-print "Hello world!<br>";
-print "Hello world!<br>";
-print "Hello world!<br>";
+
