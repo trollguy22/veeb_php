@@ -5,19 +5,14 @@ $vanus = 18;
 $kaal = 85;
 $sugu = 'mees';
 
-switch ($sugu) {
-    case 'mees':
-        echo '<p style="color: blue">';
-        break;
-    case 'naine':
-        echo '<p style="color: red">';
-        break;
-    default:
-        echo '<p style="color: green">';
+$arv = rand(0,100);
+$jaak =  $arv % 2;
+echo $arv.' = ';
+if($jaak == 0) {
+echo '<div class="paaris">'.$arv.'</div>';
 }
-echo 'Minu nimi on '.$eesNimi.'<br>';
-echo 'Minu perenimi on '.$pereNimi.'<br>';
-echo 'Olen '.$vanus.' aastat vana<br>';
-echo 'Kaalun '.$kaal.' kg<br>';
-
+else {
+    echo '<div class="paaritu">'.$arv.'</div>';
+}
+echo '</p';
 ?>
