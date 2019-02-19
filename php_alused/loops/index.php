@@ -1,6 +1,6 @@
 <?php
 for($kord = 1; $kord <=10; $kord++) {
-    header('Refresh:2');
+    header('Refresh:1');
  }
 ?>
 <style>
@@ -40,7 +40,12 @@ if($arv == $jagaja) {
 echo '<div class="algarv">'.$arv.'</div>';
 }
 else {
-    echo '<div class="tavaline">'.$arv.'</div>';
+    if ($arv % 2 == 0) {
+        echo '<div class="paaris">' . $arv . '</div>';
+
+    } else {
+        echo '<div class="paaritu">' . $arv . '</div>';
+    }
 }
 echo '</p';
 ?>
