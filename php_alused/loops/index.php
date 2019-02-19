@@ -1,7 +1,6 @@
 <?php
 for($kord = 1; $kord <=10; $kord++) {
-    header('Refresh:1');
-    echo $kord;
+    header('Refresh:2');
  }
 ?>
 <style>
@@ -19,17 +18,29 @@ for($kord = 1; $kord <=10; $kord++) {
     }
     .paaritu{
         background: green;
+    .algarv{
+        background: deepskyblue;
+    }
+    .tavaline{
+        background: lightgray;
     }
 </style>
 <?php
 
 $arv = rand(0,100);
+$jagaja = 2;
+//niikaua kuni jääk ei ole 0
+while($arv % $jagaja != 0){
+    $jagaja++;
+}
+// kui arv ja jagaja on võrdsed, on algarv
 $jaak =  $arv % 2;
-if($jaak == 0) {
-echo '<div class="paaris">'.$arv.'</div>';
+
+if($arv == $jagaja) {
+echo '<div class="algarv">'.$arv.'</div>';
 }
 else {
-    echo '<div class="paaritu">'.$arv.'</div>';
+    echo '<div class="tavaline">'.$arv.'</div>';
 }
 echo '</p';
 ?>
