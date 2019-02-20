@@ -8,8 +8,13 @@
  */
 function paarsuseKontroll($arv){
     if($arv % 2 == 0) {
-        echo $arv.' on paaris<br>';
+        $kontroll = $arv.' on paaris<br>';
     } else {
-       echo $arv.' on paaritu<br>';
+       $kontroll = $arv.' on paaritu<br>';
     }
+    return $kontroll;
+}
+for($arv = 0; $arv <=10; $arv++) {
+   $kontroll = paarsuseKontroll($arv);
+   echo $kontroll;
 }
