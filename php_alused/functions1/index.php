@@ -15,15 +15,21 @@ function kasPaaris($arv){
     return $kontroll;
 }
 
-function kirjeldus($paaris){
-    if($paaris == true){
-        echo ' on paaris';
+function kasAlgarv($arv){
+    $jagaja = 2;
+    if($arv == 0 or $arv == 1) {
+        $kontroll = true;
     } else {
-        echo ' on paaritu';
+        while ($arv % $jagaja != 0) $jagaja++;
+        if ($arv == $jagaja) {
+            $kontroll = true;
+        } else {
+            $kontroll = false;
+        }
     }
-echo '<br>';
+    return $kontroll;
 }
-for($arv = 0; $arv <=10; $arv++) {
-    echo $arv;
-   kirjeldus(kasPaaris($arv));
+function arvudeTabel(){
+
+
 }
