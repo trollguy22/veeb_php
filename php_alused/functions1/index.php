@@ -6,15 +6,25 @@
  * @param $arv
  * print is $arv even or add
  */
-function paarsuseKontroll($arv){
+function kasPaaris($arv){
     if($arv % 2 == 0) {
-        $kontroll = $arv.' on paaris<br>';
+        $kontroll = true;
     } else {
-       $kontroll = $arv.' on paaritu<br>';
+       $kontroll = false;
     }
     return $kontroll;
 }
+
+function kirjeldus($paaris){
+    if($paaris == true){
+        echo ' on paaris';
+    } else {
+        echo ' on paaritu';
+    }
+echo '<br>';
+}
 for($arv = 0; $arv <=10; $arv++) {
-   $kontroll = paarsuseKontroll($arv);
-   echo $kontroll;
+    echo $arv;
+   $kontroll = kasPaaris($arv);
+   kirjeldus($kontroll);
 }
