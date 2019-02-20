@@ -39,31 +39,32 @@ function tabeliPais(){
     ';
 }
 function tabeliRida($arv){
-    echo '<tr>';
-    echo '<td>'.$arv.'</td>';
-    echo '<td class="paaris">';
+    $rida = '<tr>';
+    $rida = $rida.'<td>'.$arv.'</td>';
+    $rida .= '<td class="paaris">';
     if(kasPaaris($arv)){
-        echo '<i class="fas fa-angle-down"></i>';
+        $rida .=  '<i class="fas fa-angle-down"></i>';
     }
-    echo '</td>';
-    echo '<td class="paaritu">';
+    $rida .=  '</td>';
+    $rida .=  '<td class="paaritu">';
     if(!kasPaaris($arv)){
-        echo '<i class="fas fa-angle-down"></i>';
+        $rida .=  '<i class="fas fa-angle-down"></i>';
     }
-    echo '</td>';
-    echo '<td class="algarv">';
+    $rida .=  '</td>';
+    $rida .=  '<td class="algarv">';
     if(kasAlgarv($arv)){
-        echo '<i class="fas fa-angle-down"></i>';
+        $rida .=  '<i class="fas fa-angle-down"></i>';
     }
-    echo '</td>';
-    echo '</tr>';
+    $rida .=  '</td>';
+    $rida .=  '</tr>';
+    return $rida;
 }
 function tabel($ridadeArv){
     echo '<table class="table">';
     echo tabeliPais();
     echo '<tbody>';
     for($reanumber = 0; $reanumber <= $ridadeArv; $reanumber++){
-        tabeliRida($reanumber);
+        echo tabeliRida($reanumber);
     }
     echo '</tbody>';
     echo '</table>';
