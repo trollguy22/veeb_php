@@ -29,7 +29,16 @@ function kasAlgarv($arv){
     }
     return $kontroll;
 }
-function arvudeTabel(){
-
+function tabeliPais(){
+    return '
+    <thead>
+        <tr>
+            <th>arv</th>
+            <th>paaris</th>
+            <th>paaritu</th>
+            <th>algarv</th>
+        </tr>
+        </thead>
+    ';
 
 }
