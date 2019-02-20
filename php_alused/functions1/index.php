@@ -25,6 +25,5 @@ echo '<br>';
 }
 for($arv = 0; $arv <=10; $arv++) {
     echo $arv;
-   $kontroll = kasPaaris($arv);
-   kirjeldus($kontroll);
+   kirjeldus(kasPaaris($arv));
 }
