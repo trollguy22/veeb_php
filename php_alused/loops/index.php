@@ -1,51 +1,71 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sookla menuu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center">
+    <!-- tabel -->
+    <table class="table">
+        <!-- tabeli header -->
+        <thead>
+        <tr>
+            <th>arv</th>
+            <th>paaris</th>
+            <th>paaritu</th>
+            <th>algarv</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        for($arv = 0; $arv <= 15; $arv++){
+            if($arv % 2 == 0) {
+                $kasPaaris = true;
+            } else {
+                $kasPaaris = false;
+            }
+            $jagaja = 2;
+            if($arv == 0 or $arv == 1) {
+                $kasAlgarv = true;
+            } else {
+                while ($arv % $jagaja != 0) $jagaja++;
+                if ($arv == $jagaja) {
+                    $kasAlgarv = true;
+                } else {
+                    $kasAlgarv = false;
+                }
+            }
+            echo '
+                    <tr>
+                        <td>'.$arv.'</td>
+                        <td class="paaris">';
+            if($kasPaaris) {
+                echo '<i class="fas fa-angle-down"></i>';
+            }
+            echo '</td>';
+            echo '<td class="paaritu">';
+            if(!$kasPaaris) {
+                echo '<i class="fas fa-angle-down"></i>';
+            }
+            echo '</td>';
+            echo '<td class="algarv">';
+            if($kasAlgarv) {
+                echo '<i class="fas fa-angle-down"></i>';
+            }
+            echo '</td>';
+            echo '</tr>';
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
 <?php
-for($kord = 1; $kord <=10; $kord++) {
-    header('Refresh:1');
- }
-?>
-<style>
-    div {
-        margin: auto;
-        width: 100px;
-        height: 100px;
-        font-size: 75px;
-        vertical-align: middle;
-        text-align: center;
-        padding-top: 15px;
-    }
-    .paaris{
-        background: red;
-    }
-    .paaritu{
-        background: green;
-    .algarv{
-        background: deepskyblue;
-    }
-    .tavaline{
-        background: lightgray;
-    }
-</style>
-<?php
-
-$arv = rand(0,100);
-$jagaja = 2;
-//niikaua kuni jääk ei ole 0
-while($arv % $jagaja != 0){
-    $jagaja++;
-}
-// kui arv ja jagaja on võrdsed, on algarv
-$jaak =  $arv % 2;
-
-if($arv == $jagaja) {
-echo '<div class="algarv">'.$arv.'</div>';
-}
-else {
-    if ($arv % 2 == 0) {
-        echo '<div class="paaris">' . $arv . '</div>';
-
-    } else {
-        echo '<div class="paaritu">' . $arv . '</div>';
-    }
-}
-echo '</p';
-?>

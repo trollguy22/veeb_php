@@ -1,0 +1,22 @@
+style>
+div {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    font-size: 75px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+}
+.paaris{
+    background: red;
+}
+.paaritu{
+    background: green;}
+.algarv{
+    background: deepskyblue;
+}
+.tavaline {
+    background: lightgray;
+
+}
