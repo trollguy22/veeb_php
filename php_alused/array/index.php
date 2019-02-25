@@ -45,9 +45,9 @@ function tabeliPais($andmed){
 
 
 //$tabeli_pealkiri = array_keys($raamatud[0]);
-echo '<table border="1">';
-tabeliPais($tabeli_pealkiri);
-echo '</table>';
+//echo '<table border="1">';
+//tabeliPais($tabeli_pealkiri);
+//echo '</table>';
 
 //echo '<pre>';
 //print_r($raamatud);
@@ -70,6 +70,5 @@ function tabel($andmed){
         echo '</tdbody>';
     echo '</table>';
 }
-usort($raamatud);
 
 tabel($raamatud);
