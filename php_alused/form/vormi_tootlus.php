@@ -9,7 +9,9 @@ foreach ($_GET as $nimetus => $vaartus) {
 }
 if(strlen($nimi) == 0 or strlen($parool) == 0){
     header('Location: index.html');
+    exit;
 } else {
-    echo 'Tere ' . $nimi . '!<br>';
-    echo 'Sinu parooliks on ' . $parool;
+    foreach ($_GET AS $nimetus => $vaartus){
+        echo $nimetus.' => '.$vaartus.'<br>';
+    }
 }
