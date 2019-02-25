@@ -13,6 +13,10 @@
         0.95
     )
 );
+
+$porsad[0][] = 'punane';
+$porsad[1][] = 'sinine';
+
 echo $porsad[0][0].'<br>';
 echo $porsad[1][1].'<br>';
 echo $porsad[2][2].'<br>';
