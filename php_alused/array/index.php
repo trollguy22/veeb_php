@@ -1,39 +1,43 @@
 <?php
-    $porsad = array(
-         array(
-            'Peppa',
-            'naine',
-            4,
-            1.04
-        ),
-        array(
-        'geogre',
-        'mees',
-        2,
-        0.95
-    )
+$peppa = array(
+    'nimi' => 'Peppa',
+    'sugu' => 'naine',
+    'vanus' => 4,
+    'pikkus' => 1.04
+);
+$george = array (
+    'nimi' => 'George',
+    'sugu' => 'mees',
+    'vanus' => 2,
+    'pikkus' => 0.95
 );
 
 $porsad[0][] = 'punane';
 $porsad[1][] = 'sinine';
 
-echo $porsad[0][0].'<br>';
-echo $porsad[1][1].'<br>';
-echo $porsad[2][2].'<br>';
-echo $porsad[3][3].'<br>';
+$porsad = array();
+$porsad['peppa'] = $peppa;
+$porsad['george'] = $george;
 
-echo '<hr>';
-
-for($i = 0; $i < count($porsad); $i++) {
-    for($j = 0; $j < count($porsad[$i][$j]); $j++){
-        echo $porsad[$i][$j].'<br>';
-    }
+foreach ($peppa as $nimi => $vaartus) {
+    echo $nimi.' - '.$vaartus.'<br>';
 }
-echo '<hr>';
 
-foreach ($porsad as $porsas) {
-    foreach ($porsas as $element){
-        echo $element.'<br>';
-    }
 echo '<hr>';
+$porsad['peppa']['lemmik_varv'] = 'punane';
+$porsad['george']['lemmik_varv'] = 'sinine';
+
+foreach ($george as $nimi => $vaartus) {
+    echo $nimi . ' - ' . $vaartus . '<br>';
+
+foreach ($porsad as $porsaseNimi=>$porsaseandmed)
+    echo '<b>' . $porsaseNimi . '</b><br>';
 }
+    foreach ($prosaseAndmed as $nimetus=>$vaartus)
+    {
+        echo '<dd>'.$nimetus.' - '.$vaartus.'<dd>';
+}
+
+//echo  '<pre>';
+//print_r($porsad);
+//echo '</pre>'
