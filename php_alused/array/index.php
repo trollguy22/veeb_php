@@ -32,7 +32,33 @@ function tabeliPais($andmed){
     echo '</tr>';
     echo '</thead>';
 }
-$tabeli_pealkiri = array_keys($raamatud[0]);
+
+
+//$tabeli_pealkiri = array_keys($raamatud[0]);
 echo '<table border="1">';
 tabeliPais($tabeli_pealkiri);
 echo '</table>';
+
+//echo '<pre>';
+//print_r($raamatud);
+
+function tabeliRida($andmed) {
+    echo '<tr>';
+    foreach ($andmed as $elemendiNimetus => $elemendiVaartus) {
+        echo '<td>'.$elemendiVaartus.'</td>';
+    }
+    echo '</tr>';
+}
+
+function tabel($andmed){
+    echo '<table border="1">';
+        tabeliPais(array_keys($andmed[0]));
+        echo '<tdebody>';
+        foreach ($andmed as $element){
+            tabeliRida($element);
+        }
+        echo '</tdbody>';
+    echo '</table>';
+}
+
+tabel($raamatud);
