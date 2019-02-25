@@ -22,17 +22,6 @@ array(
     'hind' => 5.9
 )
 );
-function vordleHinda($raamat1, $raamat2){
-    if($raamat1['hind'] == $raamat2['hind']) {
-        return 0;
-    } else if ($raamat1['hind'] > $raamat2['hind']){
-        return -1;
-    } else {
-        return 1;
-    }
-}
-usort($raamatud, 'vordleHinda');
-
 function tabeliPais($andmed){
     echo '<thead>';
     echo '<tr>';
@@ -42,43 +31,40 @@ function tabeliPais($andmed){
     echo '</tr>';
     echo '</thead>';
 }
-
-
-//$tabeli_pealkiri = array_keys($raamatud[0]);
-//echo '<table border="1">';
-//tabeliPais($tabeli_pealkiri);
-//echo '</table>';
-
-//echo '<pre>';
-//print_r($raamatud);
-
-function tabeliRida($andmed) {
+function tabeliRida($andmed){
     echo '<tr>';
-    foreach ($andmed as $elemendiNimetus => $elemendiVaartus) {
+    foreach ($andmed as $elemendiNimetus => $elemendiVaartus){
         echo '<td>'.$elemendiVaartus.'</td>';
     }
     echo '</tr>';
 }
-
 function tabel($andmed){
     echo '<table border="1">';
-        tabeliPais(array_keys($andmed[0]));
-        echo '<tdebody>';
-        foreach ($andmed as $element){
-            tabeliRida($element);
-        }
-        echo '</tdbody>';
+    tabeliPais(array_keys($andmed[0]));
+    echo '<tbody>';
+    foreach ($andmed as $element){
+        tabeliRida($element);
+    }
+    echo '</tbody>';
     echo '</table>';
 }
-
-function filtreerihinnajärgi($andmed, $alghind, $lopphind){
-    filtreerimisTulemus = array();
+function vordleHinda($raamat1, $raamat2){
+    if($raamat1['hind'] == $raamat2['hind']){
+        return 0;
+    } else if($raamat1['hind'] > $raamat2['hind']){
+        return -1;
+    } else {
+        return 1;
+    }
+}
+function filtreeriHinnaJargi($andmed, $algHind, $loppHind){
+    $filreerimiseTulemus = array();
     foreach ($andmed as $element){
-        if($element['hind'] >= $alghind and $element['hind'] <= $lopphind){
-            $filtreerimistulemus[] = $element;
+        if($element['hind'] >= $algHind and $element['hind'] <= $loppHind){
+            $filreerimiseTulemus[] = $element;
         }
     }
-    return $filtreerimistulemus;
+    return $filreerimiseTulemus;
 }
-usort($raamatud, 'vordleGinda');
-tabel($raamatud);
+usort($raamatud, 'vordleHinda');
+tabel(filtreeriHinnaJargi($raamatud, 0, 100));
