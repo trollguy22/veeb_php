@@ -25,7 +25,7 @@ array(
 function vordleHinda($raamat1, $raamat2){
     if($raamat1['hind'] == $raamat2['hind']) {
         return 0;
-    } else if ($raamat1['hind'] < $raamat2['hind']){
+    } else if ($raamat1['hind'] > $raamat2['hind']){
         return -1;
     } else {
         return 1;
@@ -71,4 +71,14 @@ function tabel($andmed){
     echo '</table>';
 }
 
+function filtreerihinnajärgi($andmed, $alghind, $lopphind){
+    filtreerimisTulemus = array();
+    foreach ($andmed as $element){
+        if($element['hind'] >= $alghind and $element['hind'] <= $lopphind){
+            $filtreerimistulemus[] = $element;
+        }
+    }
+    return $filtreerimistulemus;
+}
+usort($raamatud, 'vordleGinda');
 tabel($raamatud);
