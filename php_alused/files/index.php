@@ -10,9 +10,14 @@ function failiKontroll($failiNimi) {
 function loeFailist($failiNimi){
     if(failiKontroll($failiNimi)){
         $fp = fopen($failiNimi, 'r');
-        while($fp){
+        while(!feof($fp)){
             $rida = fgets($fp);
-            echo $rida.'<br>';
+            if(trim($rida) == ''){
+                echo '===<br>';
+
+            } else {
+                echo $rida.'<br>';
+            }
         }
     }
 }
