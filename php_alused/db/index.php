@@ -10,4 +10,17 @@ function dbConnect($h, $u, $p, $db){
     return $connect;
 }
 
+function query($conn, $sql){
+    $result = mssql_query($conn, $sql);
+    if($result == false){
+        echo  'Probleem päringuga: <b>'.$sql.'</b><br>';
+        echo mysqli_error($conn).'<br>';
+        echo mysqli_errno($conn).'<br>';
+    }
+    return $result;
+}
 $connectIKT = dbConnect(HOST, USER, PASS, DB);
+$sql = 'SELECT NOW()';
+$sqlResult = query($connectIKT, $sql);
+
+
