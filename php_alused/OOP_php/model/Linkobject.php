@@ -35,7 +35,7 @@ class Linkobject extends Http
         {
             $link .= $this->delim;
         }
-        $link .= $this->fixUrl($name).$this->eq.$this->fixUrl($val);
+        $link .= fixUrl($name).$this->eq.fixUrl($val);
     }
 
     /*
