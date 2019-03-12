@@ -14,4 +14,9 @@ $link = $http->getLink(array('controller' => 'contact'));
 $item->set('link',$link);
 $nav->add('items', $item->parse());
 
+$item->set('name', 'Login');
+$link = $http->getLink(array('controller' => 'login'));
+$item->set('link',$link);
+$nav->add('items', $item->parse());
+
 $mainContent->set('nav',$nav->parse());

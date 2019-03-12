@@ -1,3 +1,4 @@
 <?php
-// default controller content
+
+$mainContent->SET('content','Default Page Content');
 
