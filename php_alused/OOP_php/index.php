@@ -20,8 +20,8 @@ $main->set('title', 'App Title');
 // require_once 'controller.php';
 
 $mainContent = new Template('main_content');
-$mainContent->SET('header','Page Reader');
-$mainContent->SET('nav','Page Navigation');
+$mainContent->SET('header','Page Header');
+require_once 'nav.php';
 $mainContent->SET('content','Page Content');
 $mainContent->SET('footer','Page Footer');
 $main->set('content', $mainContent->parse());
