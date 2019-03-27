@@ -14,7 +14,7 @@ $main->set('lang', $http->get('lang_id'));
 $main->set('title', 'Söökla menüü');
 $mainContent = new Template('menu.main_content');
 $nav = new Template('nav.nav');
-$sql = 'SELECT * FROM dish_availability';
+$sql = 'SELECT DISTINCT * FROM dish_availability GROUP BY dish_date';
 $dates = $db->getData($sql);
 foreach ($dates as $date){
     $navItem = new Template('nav.item');
