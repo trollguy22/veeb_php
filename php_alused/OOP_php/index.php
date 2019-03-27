@@ -1,46 +1,33 @@
 <?php
 require_once 'conf.php';
 // main page by html templates
-$main = new Template('main');
-$meta = new Template('meta');
-$style = new Template('style');
-$js = new Template('js');
+$main = new Template('app.main');
+$meta = new Template('app.meta');
+$style = new Template('app.style');
+$js = new Template('app.js');
 // add meta, style and js templates content to main template
 $main->set('meta', $meta->parse());
 $main->set('style', $style->parse());
 $main->set('js', $js->parse());
 // set up main page real values
 $main->set('lang', $http->get('lang_id'));
-$main->set('title', 'App Example Title');
-$mainContent = new Template('main_content');
-// create dish types selection
-$sql = 'SELECT * FROM dish_types';
-$dishTypes = $db->getData($sql);
-foreach ($dishTypes as $dishTypeData){
-    $dishType = new Template('type');
-    $dishTypeName = new Template('type_name');
-    $dishTypeName->set('type_name', $dishTypeData['type_name']);
-    $dishTypeName->set('type_icon', $dishTypeData['type_icon']);
-    $dishType->set('type_name', $dishTypeName->parse());
-    $dishData = new Template('type_data');
-    $dishData->set('type_name', $dishTypeData['type_name']);
-    $dish = new Template('dish');
-    $sql = 'SELECT * FROM dishes WHERE type_id='.fixDb($dishTypeData['type_id']);
-    $dishes = $db->getData($sql);
-    foreach ($dishes as $dishContent){
-        $dish->set('dish_name', $dishContent['dish_name']);
-        $dish->set('dish_description', $dishContent['dish_description']);
-        $dish->set('dish_price', $dishContent['dish_price']);
-        $dish->set('discount', discount($dishContent['dish_price'], 15));
-        $dishData->add('dishes', $dish->parse());
-    }
-    $dishType->set('type_data', $dishData->parse());
-    $mainContent->add('menu', $dishType->parse());
+$main->set('title', 'Söökla menüü');
+$mainContent = new Template('menu.main_content');
+$nav = new Template('nav.nav');
+$sql = 'SELECT * FROM dish_availability';
+$dates = $db->getData($sql);
+foreach ($dates as $date){
+    $navItem = new Template('nav.item');
+    $link = $http->getLink(array('date' => $date['dish_date']));
+    $navItem->set('link', $link);
+    $navItem->set('date', $date['dish_date']);
+    $nav->add('nav_items', $navItem->parse());
 }
+$mainContent->set('nav', $nav->parse());
 // page content from controller
 // add action control
 require_once 'controller.php';
-require_once 'nav.php'; // nav element
+//require_once 'nav.php'; // nav element
 $mainContent->set('footer', 'Page Footer');
 $main->set('content', $mainContent->parse());
 // print out main page full view

@@ -29,7 +29,7 @@ $siteRoles = array(
     ROLE_USER => 'Kasutaja'
 );
 
-define('DEFAULT_CONTROLLER', 'default');
+define('DEFAULT_CONTROLLER', 'menu');
 
 require_once(LIB_DIR.'utils.php');
 // import model classes
